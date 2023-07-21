@@ -27,7 +27,7 @@ header > ul {
 
 .products-container {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2rem;
 }
 
@@ -43,7 +43,6 @@ header > ul {
 }
 
 .product > img {
-  mix-blend-mode: multiply;
   height: 150px;
   width: 150px;
   object-fit: cover;
@@ -157,4 +156,23 @@ header > ul {
 
 .active-page {
   background-color: grey;
+}
+
+.search-bar > button {
+  width: 90px;
+  height: 30px;
+  margin-left: 30px;
+  font-size: 15px;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.search-bar > input {
+  width: 300px;
+  height: 30px;
+  border-radius: 2px;
+  outline: none;
+  border: none;
 }
