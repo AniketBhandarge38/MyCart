@@ -1,13 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cartSlice";
 
 export default function ProductDetails({ selectedProd, onClickGoBack }) {
+  const buttonRef = useRef(null);
   let images = selectedProd.images;
 
+  const dispatch = useDispatch();
+
   const [selectedImage, setSelectedImage] = useState(images[0]);
-
-  const [cartItems, setCartItems] = useState([]);
-
-  const cartRef = useRef(cartItems);
 
   function handleImgClick(event) {
     setSelectedImage(event.target.src);
@@ -15,15 +16,12 @@ export default function ProductDetails({ selectedProd, onClickGoBack }) {
 
   function handleAddToCartClick(selectedProd) {
     console.log("Add to cart clicked", selectedProd);
-    setCartItems([...cartItems, selectedProd]);
-    //onClickGoBack();
+    dispatch(addToCart(selectedProd));
+
+    if (buttonRef.current) {
+      buttonRef.current.disabled = true;
+    }
   }
-
-  useEffect(() => {
-    cartRef.current = cartItems;
-  }, [cartItems]);
-
-  console.log("Ref: ", cartRef.current);
 
   return (
     <div>
@@ -38,7 +36,10 @@ export default function ProductDetails({ selectedProd, onClickGoBack }) {
           </div>
           <div className="selected-img">
             <img src={selectedImage} alt="main" />
-            <button onClick={() => handleAddToCartClick(selectedProd)}>
+            <button
+              ref={buttonRef}
+              onClick={() => handleAddToCartClick(selectedProd)}
+            >
               <svg
                 className="_1KOMV2"
                 width="16"

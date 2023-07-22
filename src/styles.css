@@ -113,7 +113,8 @@ header > ul {
 .details {
   box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
     rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-  padding: 3rem;
+  padding: 2rem;
+  width: 250px;
 }
 
 .details > button {
@@ -175,4 +176,74 @@ header > ul {
   border-radius: 2px;
   outline: none;
   border: none;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  padding: 10px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 3rem;
+  align-items: center;
+  border: 1px dashed #2370f4;
+  padding: 1px;
+}
+
+.cart-item > img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+
+.cart > button {
+  background-color: rgb(255, 51, 0);
+  height: 35px;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.cart > button:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  cursor: pointer;
+}
+
+.cart-item > button {
+  height: 20px;
+  background-color: blueviolet;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.cart-item > button:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  cursor: pointer;
+}
+
+.cart > h2 {
+  background-color: rgb(102, 31, 102);
+  color: #fff;
+  width: 50%;
+  margin: auto;
+}
+
+.selected-img > button:disabled {
+  background-color: darkgray;
+  cursor: pointer;
+}
+
+.products-container > h3 {
+  color: red;
 }
