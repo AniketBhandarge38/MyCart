@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { searchProduct } from "../features/searchSlice";
-import { store } from "../store";
 
 export default function Search() {
   const [newsearchQuery, setSearchQuery] = useState("");
@@ -11,7 +10,6 @@ export default function Search() {
   }
 
   const dispatch = useDispatch();
-  //const { searchQuery } = useSelector((store) => store.search);
 
   return (
     <div className="search-bar">

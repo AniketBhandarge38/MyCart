@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard";
 import ProductDetails from "./ProductDetails";
 import { useSelector } from "react-redux";
 import { store } from "../store";
+import Cart from "./Cart";
 
 export default function Body() {
   const [products, setProducts] = useState([]);
@@ -74,11 +75,14 @@ export default function Body() {
     <div>
       <div className="products-container">
         {selectedProduct ? (
-          <ProductDetails
-            selectedProd={selectedProduct}
-            onClickGoBack={handleGoBackClick}
-            key={selectedProduct.id}
-          />
+          <>
+            <ProductDetails
+              selectedProd={selectedProduct}
+              onClickGoBack={handleGoBackClick}
+              key={selectedProduct.id}
+            />
+            <Cart />
+          </>
         ) : (
           products.slice(page * 10 - 10, page * 10).map((product) => {
             return (

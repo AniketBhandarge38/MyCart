@@ -1,13 +1,17 @@
 import Search from "./Search";
 
 export default function Header() {
+  function handleCartClick() {
+    console.log("cart clicked");
+    
+  }
   return (
     <header>
       <h1>MyCart</h1>
       <Search />
       <ul>
         <li>Home</li>
-        <li>
+        <li onClick={handleCartClick}>
           <svg
             className="V3C5bO"
             width="14"
