@@ -1,17 +1,16 @@
 import Search from "./Search";
+import { useSelector } from "react-redux";
 
 export default function Header() {
-  function handleCartClick() {
-    console.log("cart clicked");
-    
-  }
+  const quantity = useSelector((store) => store.cart.quantity);
+
   return (
     <header>
       <h1>MyCart</h1>
       <Search />
       <ul>
         <li>Home</li>
-        <li onClick={handleCartClick}>
+        <li>
           <svg
             className="V3C5bO"
             width="14"
@@ -25,7 +24,7 @@ export default function Header() {
               fill="#fff"
             ></path>
           </svg>
-          Cart
+          Cart ({quantity})
         </li>
       </ul>
     </header>

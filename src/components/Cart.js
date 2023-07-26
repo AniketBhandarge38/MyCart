@@ -1,9 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../features/cartSlice";
+import { removeFromCart } from "../features/cartSlice";
 import { store } from "../store";
 export default function Cart() {
   const { cartItems } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
+
+  function handleDecrement(item) {
+    dispatch(removeFromCart(item));
+  }
+
+  function handleIncrement() {}
 
   const cartItemsElement = (
     <div className="cart">
@@ -11,12 +18,12 @@ export default function Cart() {
       <span></span>
       {cartItems.map((item) => {
         return (
-          <div className="cart-item">
+          <div className="cart-item" key={item.id}>
             <img src={item.thumbnail} />
             <p>{item.title}</p>
-            <button>+</button>
+            <button onClick={handleIncrement}>+</button>
             <span>1</span>
-            <button>-</button>
+            <button onClick={() => handleDecrement(item)}>-</button>
           </div>
         );
       })}
@@ -30,6 +37,6 @@ export default function Cart() {
   );
 
   const cartSize = cartItems.length;
-  console.log(cartItems + " Size: " + cartSize);
+
   return <>{cartSize > 0 ? cartItemsElement : emptyCartElement}</>;
 }
