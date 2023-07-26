@@ -7,6 +7,8 @@ import App from "./App";
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
+//$ git config --global user.name "AniketBhandarge38"
+
 root.render(
   <StrictMode>
     <Provider store={store}>
